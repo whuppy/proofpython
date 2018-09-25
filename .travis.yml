@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t ea1het/SEPythonAPIContainer .
+  - docker build -t ea1het/PythonAPIContainer .
 
 script:
 - ./tests/test.sh
