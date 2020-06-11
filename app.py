@@ -140,6 +140,28 @@ def echo(**kwargs):
         ), 200, headers
     )
 
+@APP.route('/octohelper', methods=['GET'])
+def octohelper():
+    """
+    This is the API index endpoint with HATEOAS support
+    :param: none
+    :return: a JSON (application/json)
+    """
+
+    headers = {}
+
+    return make_response(
+        jsonify(
+            {
+                'msg': 'this is octohelper endpoint',
+                'tstamp': datetime.utcnow().timestamp(),
+                'endpoints': {
+                    'url_echo': url_for('echo', _external=True)
+                }
+            }
+        ), 200, headers
+    )
+
 
 # -- Finally, the application is run, more or less ;) ------------------------
 
